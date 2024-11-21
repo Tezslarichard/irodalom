@@ -1,0 +1,28 @@
+table td:first-child,
+table th:first-child{
+    background-color: aqua;
+}
+
+
+table td:last-child,
+table th:last-child{
+    background-color: aqua;
+}
+
+
+table th:nth-child(even){
+    background-color: floralwhite;
+}
+
+
+table td,th {
+    border:2px solid black;
+    
+}
+table{
+    border-collapse: collapse;
+}
+.error{
+    border: 10px solid red;
+    background-color: red;
+}
