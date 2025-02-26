@@ -70,7 +70,6 @@ for(const futo of array){
     td2.innerHTML = futo.Korszak
     tr2.appendChild(td2)
     
-
     const td3 = document.createElement('td')
     td3.innerHTML = futo.Szerelmek1
     
@@ -88,6 +87,29 @@ for(const futo of array){
 }
 fejlec(thead)
 rendertable(tbody)
+
+const formtable = [
+    {
+        label: 'Költő neve',
+        inputId :'kolto_nev',
+        type: 'text'
+    },
+    {
+        label: 'Korszak',
+        inputId :'korszak',
+        type: 'text'
+    },
+    {
+        label: 'Szerelme: ',
+        inputId :'szerelem1',
+        type: 'text'
+    },
+    {
+        label: 'Volt másik szerelme?',
+        inputId :'masodik',
+        type: 'text'
+    }
+]
 
 const form = document.getElementById('form')
 
@@ -150,5 +172,5 @@ function validatefields(htmlelement, erroruzi){
        }
        valid = false
     }
-    return valid
+    return valid 
 }
