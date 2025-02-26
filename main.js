@@ -35,7 +35,12 @@ thead.appendChild(tr)
 table.appendChild(tbody)
 
 
-
+/**
+ * 
+ * @param {HTMLElement} thead 
+ * 
+ * ez a függvény egy táblázat fejlécét hozza létre for ciklussal 
+ */
 function fejlec(thead){
     
     const fejlecem = [
@@ -56,8 +61,15 @@ for(const fej of fejlecem){
         th.colSpan = 2
     }
 }}
-
-function rendertable(tbody){
+/**
+ * 
+ * @param {HTMLElement} tbody 
+ * @param {Array} array
+ * ez a függvény egy táblázatot hoz létre for ciklussal
+ * minden elemnek van egy cellája a táblázatban
+ * egy tömbböl olvassa ki az adatokat
+ */
+function rendertable(tbody,array){
 for(const futo of array){
     const tr2 = document.createElement('tr')
     tbody.appendChild(tr2)
@@ -86,7 +98,7 @@ for(const futo of array){
 }
 }
 fejlec(thead)
-rendertable(tbody)
+rendertable(tbody,array)
 
 const formtable1 = [
     {
@@ -110,7 +122,13 @@ const formtable1 = [
         type: 'text'
     }
 ]
-
+/**
+ * 
+ * @param {Array} formtable1 
+ * ez a függvény egy formot hoz létre for ciklussal
+ * minden elemnek van egy labelje és egy input mezője
+ * ez a függvény helyettesiti a html formot
+ */
 function createform(formtable1){
     const form1 = document.createElement('form')
     form1.id = 'form'
@@ -185,12 +203,18 @@ form.addEventListener('submit',function(e){
     }
     array.push(new_array)
     tbody.innerHTML = ''
-    rendertable(tbody)
+    rendertable(tbody,array)
     form.reset()
 }
 })
 
-
+/**
+ * 
+ * @param {HTMLElement} htmlelement 
+ * @param {string} erroruzi 
+ * @returns {boolean}
+ * ez a függvény validálja a mezőket
+ */
 function validatefields(htmlelement, erroruzi){
     let valid = true
     if(htmlelement.value === ''){
