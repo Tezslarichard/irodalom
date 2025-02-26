@@ -88,7 +88,7 @@ for(const futo of array){
 fejlec(thead)
 rendertable(tbody)
 
-const formtable = [
+const formtable1 = [
     {
         label: 'Költő neve',
         inputId :'kolto_nev',
@@ -111,6 +111,35 @@ const formtable = [
     }
 ]
 
+function createform(formtable1){
+    const form1 = document.createElement('form')
+    form1.id = 'form'
+    document.body.appendChild(form1)
+
+    for(const formelem of formtable1){
+        const div = document.createElement('div')
+        form1.appendChild(div)
+
+        const label = document.createElement('label')
+        label.innerHTML = formelem.label
+        div.appendChild(label)
+
+        const input = document.createElement('input')
+        input.id = formelem.inputId
+        input.type = formelem.type
+        div.appendChild(input)
+
+        const error = document.createElement('div')
+        error.className = 'error'
+        div.appendChild(error)
+    }
+    const button = document.createElement('button')
+    button.innerHTML = 'Küldés'
+    form1.appendChild(button)
+}
+
+createform(formtable1)
+
 const form = document.getElementById('form')
 
 form.addEventListener('submit',function(e){
@@ -119,10 +148,10 @@ form.addEventListener('submit',function(e){
     const kolto_nev = document.getElementById('kolto_nev')
     const korszak = document.getElementById('korszak')
     const szerelmek1 = document.getElementById('szerelem1')
-    const szerelmek2 = document.getElementById('szerelem2')
+    const szerelmek2 = document.getElementById('masodik')
     
     const forma = e.currentTarget
-    const hiba = forma.querySelectorAll('.hiba')
+    const hiba = forma.querySelectorAll('.error')
     for(const errorhiba of hiba){
         errorhiba.innerHTML = ""
     }
@@ -174,3 +203,4 @@ function validatefields(htmlelement, erroruzi){
     }
     return valid 
 }
+
